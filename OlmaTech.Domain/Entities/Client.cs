@@ -9,11 +9,13 @@ namespace OlmaTech.Domain.Entities
 {
     public class Client : PersonBase
     {
+        // Position
         public string PositionUz { get; set; } = null!;
         public string PositionEn { get; set; } = null!;
         public string PositionRu { get; set; } = null!;
         public string PositionUzRu { get; set; } = null!;
 
+        // Comment
         public string CommentUz { get; set; } = null!;
         public string CommentEn { get; set; } = null!;
         public string CommentRu { get; set; } = null!;

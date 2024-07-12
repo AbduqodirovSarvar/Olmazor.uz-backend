@@ -20,7 +20,5 @@ namespace OlmaTech.Domain.Entities
         public string DescriptionEn { get; set; } = null!;
         public string DescriptionRu { get; set; } = null!;
         public string DescriptionUzRu { get; set; } = null!;
-
-        public string Icon { get; set; } = null!;
     }
 }
