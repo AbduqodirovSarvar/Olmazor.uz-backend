@@ -8,8 +8,8 @@ using System.Threading.Tasks;
 
 namespace OlmaTech.Application.UseCases.CommonToDoList.Queries
 {
-    public class CommonQuery : IRequest<CommonViewModel>
+    public class GetCommonDataQuery : IRequest<CommonViewModel>
     {
-        public CommonQuery() { }
+        public GetCommonDataQuery() { }
     }
 }

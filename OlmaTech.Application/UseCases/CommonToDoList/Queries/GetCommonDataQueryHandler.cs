@@ -11,15 +11,15 @@ using System.Threading.Tasks;
 
 namespace OlmaTech.Application.UseCases.CommonToDoList.Queries
 {
-    public class CommonQueryHandler(
+    public class GetCommonDataQueryHandler(
         IAppDbContext appDbContext,
         IMapper mapper
-        ) : IRequestHandler<CommonQuery, CommonViewModel>
+        ) : IRequestHandler<GetCommonDataQuery, CommonViewModel>
     {
         private readonly IAppDbContext _appDbContext = appDbContext;
         private readonly IMapper _mapper = mapper;
 
-        public async Task<CommonViewModel> Handle(CommonQuery request, CancellationToken cancellationToken)
+        public async Task<CommonViewModel> Handle(GetCommonDataQuery request, CancellationToken cancellationToken)
         {
             AboutViewModel about = _mapper.Map<AboutViewModel>(await _appDbContext.Abouts.FirstOrDefaultAsync(cancellationToken));
             List<HomePostViewModel>? homes = _mapper.Map<List<HomePostViewModel>>(await _appDbContext.HomePosts.ToListAsync(cancellationToken));
