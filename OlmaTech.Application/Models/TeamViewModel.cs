@@ -9,7 +9,7 @@ namespace OlmaTech.Application.Models
     public class TeamViewModel
     {
         public Guid Id { get; set; }
-        public string Position { get; set; } = null!;
+        public LocalizableViewModel Position { get; set; } = null!;
         public string? Telegram { get; set; }
         public string? Instagram { get; set; }
         public string? Twitter { get; set; }

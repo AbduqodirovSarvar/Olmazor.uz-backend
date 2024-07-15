@@ -11,10 +11,8 @@ namespace OlmaTech.Application.Models
     public class UserViewModel
     {
         public Guid Id { get; set; }
-        public string? Firstname { get; set; }
-        public string? FirstnameRu { get; set; }
-        public string? Lastname { get; set; }
-        public string? LastnameRu { get; set; } 
+        public LocalizableViewModel Firstname { get; set; } = null!;
+        public LocalizableViewModel Lastname { get; set; } = null!;
         public string? Phone { get; set; }
         public string? Photo { get; set; }
         public string? Email { get; set; }

@@ -9,8 +9,8 @@ namespace OlmaTech.Application.Models
     public class BlogPostViewModel
     {
         public Guid Id { get; set; }
-        public string Title { get; set; } = null!;
-        public string Description { get; set; } = null!;
+        public LocalizableViewModel Title { get; set; } = null!;
+        public LocalizableViewModel Description { get; set; } = null!;
         public string? Link { get; set; } = null;
         public string Photo { get; set; } = null!;
         public Guid CreatedBy { get; set; }

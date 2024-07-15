@@ -9,8 +9,8 @@ namespace OlmaTech.Application.Models
     public class ServiceViewModel
     {
         public Guid Id { get; set; }
-        public string Name { get; set; } = null!;
-        public string Description { get; set; } = null!;
+        public LocalizableViewModel Name { get; set; } = null!;
+        public LocalizableViewModel Description { get; set; } = null!;
         public Guid CreatedBy { get; set; }
         public DateTime CreatedAt { get; set; }
         public Guid UpdatedBy { get; set; }

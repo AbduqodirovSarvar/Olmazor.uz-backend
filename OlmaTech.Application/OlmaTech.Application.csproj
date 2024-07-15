@@ -21,8 +21,6 @@
 
   <ItemGroup>
     <Folder Include="Files\" />
-    <Folder Include="UseCases\AuthToDoList\" />
-    <Folder Include="UseCases\AboutToDoList\" />
     <Folder Include="UseCases\BlogPostToDoList\" />
     <Folder Include="UseCases\ClientToDoList\" />
     <Folder Include="UseCases\ContactToDoList\" />
