@@ -8,17 +8,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OlmaTech.Application.UseCases.AboutToDoList.Queries
+namespace OlmaTech.Application.UseCases.BlogPostToDoList.Queries
 {
-    public class GetAllAboutQueryHandler(
+    public class GetAllBlogPostQueryHandler(
         IAppDbContext appDbContext
-        ) : IRequestHandler<GetAllAboutQuery, List<About>>
+        ) : IRequestHandler<GetAllBlogPostQuery, List<BlogPost>>
     {
         private readonly IAppDbContext _appDbContext = appDbContext;
 
-        public async Task<List<About>> Handle(GetAllAboutQuery request, CancellationToken cancellationToken)
+        public async Task<List<BlogPost>> Handle(GetAllBlogPostQuery request, CancellationToken cancellationToken)
         {
-            return await _appDbContext.Abouts.ToListAsync(cancellationToken);
+            return await _appDbContext.BlogPosts.ToListAsync(cancellationToken);
         }
     }
 }

@@ -1,6 +1,9 @@
 ﻿using AutoMapper;
 using OlmaTech.Application.Models;
 using OlmaTech.Application.UseCases.AboutToDoList.Commands;
+using OlmaTech.Application.UseCases.BlogPostToDoList.Commands;
+using OlmaTech.Application.UseCases.ClientToDoList.Commands;
+using OlmaTech.Application.UseCases.HomePostToDoList.Commands;
 using OlmaTech.Domain.Entities;
 using OlmaTech.Domain.Enums;
 using System;
@@ -140,6 +143,21 @@ namespace OlmaTech.Application.Services
 
             // CreateAboutCommand -> About
             CreateMap<CreateAboutCommand, About>()
+                .ForMember(x => x.Photo, y => y.Ignore());
+
+            // CreateBlogPostCommand -> BlogPost
+            CreateMap<CreateBlogPostCommand, BlogPost>()
+                .ForMember(x => x.Photo, y => y.Ignore());
+
+            // CreateClientCommand -> Client
+            CreateMap<CreateClientCommand, Client>()
+                .ForMember(x => x.Photo, y => y.Ignore());
+
+            // CreateClientCommand -> Client
+            CreateMap<CreateClientCommand, Client>().ReverseMap();
+
+            // CreateHomePostCommand -> HomePost
+            CreateMap<CreateHomePostCommand, HomePost>()
                 .ForMember(x => x.Photo, y => y.Ignore());
         }
     }
