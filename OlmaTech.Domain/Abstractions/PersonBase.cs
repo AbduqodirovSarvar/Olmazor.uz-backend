@@ -16,6 +16,6 @@ namespace OlmaTech.Domain.Abstractions
         [Phone]
         public string Phone { get; set; } = string.Empty;
 
-        public string Photo { get; set; } = null!;
+        public string? Photo { get; set; }
     }
 }

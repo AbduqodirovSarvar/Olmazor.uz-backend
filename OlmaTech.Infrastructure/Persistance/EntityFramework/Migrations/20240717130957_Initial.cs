@@ -91,7 +91,7 @@ namespace OlmaTech.Infrastructure.Migrations
                     Lastname = table.Column<string>(type: "text", nullable: false),
                     LastnameRu = table.Column<string>(type: "text", nullable: false),
                     Phone = table.Column<string>(type: "text", nullable: false),
-                    Photo = table.Column<string>(type: "text", nullable: false)
+                    Photo = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -234,7 +234,7 @@ namespace OlmaTech.Infrastructure.Migrations
                     Lastname = table.Column<string>(type: "text", nullable: false),
                     LastnameRu = table.Column<string>(type: "text", nullable: false),
                     Phone = table.Column<string>(type: "text", nullable: false),
-                    Photo = table.Column<string>(type: "text", nullable: false)
+                    Photo = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -259,7 +259,7 @@ namespace OlmaTech.Infrastructure.Migrations
                     Lastname = table.Column<string>(type: "text", nullable: false),
                     LastnameRu = table.Column<string>(type: "text", nullable: false),
                     Phone = table.Column<string>(type: "text", nullable: false),
-                    Photo = table.Column<string>(type: "text", nullable: false)
+                    Photo = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
