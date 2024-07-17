@@ -11,6 +11,6 @@ namespace OlmaTech.Domain.Abstractions.Interfaces
         Guid CreatedBy { get; set; }
         DateTime CreatedAt { get; set; }
         Guid UpdatedBy { get; set; }
-        Guid UpdatedAt { get; set; }
+        DateTime UpdatedAt { get; set; }
     }
 }

@@ -12,6 +12,6 @@ namespace OlmaTech.Domain.Abstractions
         public Guid CreatedBy { get; set; }
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
         public Guid UpdatedBy { get; set; }
-        public Guid UpdatedAt { get; set; }
+        public DateTime UpdatedAt { get; set; }
     }
 }

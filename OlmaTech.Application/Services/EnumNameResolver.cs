@@ -17,9 +17,6 @@ namespace OlmaTech.Application.Services
 
             var localizedString = _localizer[$"{enumTypeName}_{source}"];
 
-            var res = _localizer["Gender_Female"].Value;
-
-            return res;
             return localizedString ?? source.ToString();
         }
     }

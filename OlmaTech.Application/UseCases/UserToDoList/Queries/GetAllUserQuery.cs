@@ -1,17 +1,19 @@
 ﻿using MediatR;
 using OlmaTech.Domain.Entities;
+using OlmaTech.Domain.Enums;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace OlmaTech.Application.UseCases.UserToDoList.Queries
 {
-    public class GetUserQuery : IRequest<User>
+    public class GetAllUserQuery : IRequest<List<User>>
     {
-        [Required]
-        public Guid Id { get; set; }
+        public GetAllUserQuery() { }
+        public UserRole? Role { get; set; } = null;
+        public Gender? Gender { get; set; } = null;
+
     }
 }

@@ -10,6 +10,11 @@ using System.Text;
 using System.Threading.Tasks;
 using Npgsql;
 using Microsoft.EntityFrameworkCore;
+using OlmaTech.Infrastructure.Models;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using OlmaTech.Infrastructure.Services;
+using OlmaTech.Infrastructure.Persistance.DefaultData;
 
 namespace OlmaTech.Infrastructure.Extentions
 {
@@ -20,6 +25,8 @@ namespace OlmaTech.Infrastructure.Extentions
             services.AddApplication();
 
             services.AddScoped<IAppDbContext, AppDbContext>();
+            services.AddScoped<IHashService, HashService>();
+            services.AddScoped<ITokenService, TokenService>();
 
             //var connectionString = configuration.GetConnectionString("DefaultConnection");
 
@@ -45,13 +52,31 @@ namespace OlmaTech.Infrastructure.Extentions
                     .EnableSensitiveDataLogging();
             });*/
 
-            /*services.Configure<JwtOptions>(configuration.GetSection(nameof(JwtOptions)));
+            services.Configure<JwtOptions>(configuration.GetSection(nameof(JwtOptions)));
 
             using var serviceProvider = services.BuildServiceProvider();
             var hashService = serviceProvider.GetRequiredService<IHashService>();
-            DefautUserData.Initialize(hashService);
+            DefaultUserData.Initialize(hashService);
 
-            services.AddAuthorization();*/
+            services.Configure<JwtOptions>(configuration.GetSection(nameof(JwtOptions)));
+
+            var secretKey = configuration["JWTConfiguration:SecretKey"] ?? "JWTConfiguration:SecretKey";
+
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddJwtBearer(options =>
+                {
+                    options.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        ValidateIssuer = true,
+                        ValidateAudience = true,
+                        ValidateLifetime = true,
+                        ValidateIssuerSigningKey = true,
+                        ValidAudience = configuration["JWTConfiguration:ValidAudience"],
+                        ValidIssuer = configuration["JWTConfiguration:ValidIssuer"],
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey))
+                    };
+                });
+            services.AddAuthorization();
 
             return services;
         }
