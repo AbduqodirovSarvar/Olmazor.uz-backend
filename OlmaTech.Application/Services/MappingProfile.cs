@@ -4,6 +4,11 @@ using OlmaTech.Application.UseCases.AboutToDoList.Commands;
 using OlmaTech.Application.UseCases.BlogPostToDoList.Commands;
 using OlmaTech.Application.UseCases.ClientToDoList.Commands;
 using OlmaTech.Application.UseCases.HomePostToDoList.Commands;
+using OlmaTech.Application.UseCases.MessageToDoList.Commands;
+using OlmaTech.Application.UseCases.ProjectToDoList.Commands;
+using OlmaTech.Application.UseCases.ServiceToDoList.Commands;
+using OlmaTech.Application.UseCases.TeamToDoList.Commands;
+using OlmaTech.Application.UseCases.UserToDoList.Commands;
 using OlmaTech.Domain.Entities;
 using OlmaTech.Domain.Enums;
 using System;
@@ -159,6 +164,27 @@ namespace OlmaTech.Application.Services
             // CreateHomePostCommand -> HomePost
             CreateMap<CreateHomePostCommand, HomePost>()
                 .ForMember(x => x.Photo, y => y.Ignore());
+
+            // CreateMessageCommand -> Message
+            CreateMap<CreateMessageCommand, Message>()
+                .ForMember(x => x.IsSeen, y => y.Ignore())
+                .ForMember(x => x.IsReplied, y => y.Ignore());
+
+            // CreateProjectCommand -> Project
+            CreateMap<CreateProjectCommand, Project>()
+                .ForMember(x => x.Photo, y => y.Ignore());
+
+            // CreateServiceCommand -> Service
+            CreateMap<CreateServiceCommand, Service>().ReverseMap();
+
+            // CreateTeamCommand -> Team
+            CreateMap<CreateTeamCommand, Team>()
+                .ForMember(x => x.Photo, y => y.Ignore());
+
+            // CreateUserCommand -> User
+            CreateMap<CreateUserCommand, User>()
+                .ForMember(x => x.Photo, y => y.Ignore())
+                .ForMember(x => x.PasswordHash, y => y.Ignore());
         }
     }
 }

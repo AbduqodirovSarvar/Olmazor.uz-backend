@@ -25,8 +25,9 @@ namespace OlmaTech.Application.UseCases.ClientToDoList.Commands
 
             if (request.Photo != null)
             {
-                var newPhotoName = await _fileService.SaveFileAsync(request.Photo);
-                client.Photo = newPhotoName ?? client.Photo;
+                var newPhotoName = await _fileService.SaveFileAsync(request.Photo) 
+                                                ?? throw new Exception("Cannot save the photo");
+                client.Photo = newPhotoName;
             }
 
             client.Firstname = request.Firstname ?? client.Firstname;

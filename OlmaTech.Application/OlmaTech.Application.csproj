@@ -23,16 +23,6 @@
     <Folder Include="Files\" />
     <Folder Include="UseCases\AuthToDoList\Queries\" />
     <Folder Include="UseCases\CommonToDoList\Commands\" />
-    <Folder Include="UseCases\MessageToDoList\Commands\" />
-    <Folder Include="UseCases\MessageToDoList\Queries\" />
-    <Folder Include="UseCases\ProjectToDoList\Commands\" />
-    <Folder Include="UseCases\ProjectToDoList\Queries\" />
-    <Folder Include="UseCases\ServiceToDoList\Commands\" />
-    <Folder Include="UseCases\ServiceToDoList\Queries\" />
-    <Folder Include="UseCases\TeamToDoList\Commands\" />
-    <Folder Include="UseCases\TeamToDoList\Queries\" />
-    <Folder Include="UseCases\UserToDoList\Commands\" />
-    <Folder Include="UseCases\UserToDoList\Queries\" />
   </ItemGroup>
 
 </Project>
