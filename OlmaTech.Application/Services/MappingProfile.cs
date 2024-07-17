@@ -34,6 +34,7 @@ namespace OlmaTech.Application.Services
 
             // About -> AboutViewModel
             CreateMap<About, AboutViewModel>()
+                
                 // Address
                 .ForMember(x => x.Address.En, y => y.MapFrom(z => z.AddressEn))
                 .ForMember(x => x.Address.Uz, y => y.MapFrom(z => z.AddressUz))
@@ -70,6 +71,16 @@ namespace OlmaTech.Application.Services
 
             // Client -> ClientViewModel
             CreateMap<Client, ClientViewModel>()
+                // FirstName
+                .ForMember(x => x.Firstname.En, y => y.MapFrom(z => z.Firstname))
+                .ForMember(x => x.Firstname.Uz, y => y.MapFrom(z => z.Firstname))
+                .ForMember(x => x.Firstname.Ru, y => y.MapFrom(z => z.FirstnameRu))
+                .ForMember(x => x.Firstname.Uzru, y => y.MapFrom(z => z.FirstnameRu))
+                // LastName
+                .ForMember(x => x.Lastname.En, y => y.MapFrom(z => z.Lastname))
+                .ForMember(x => x.Lastname.Uz, y => y.MapFrom(z => z.Lastname))
+                .ForMember(x => x.Lastname.Ru, y => y.MapFrom(z => z.LastnameRu))
+                .ForMember(x => x.Lastname.Uzru, y => y.MapFrom(z => z.LastnameRu))
                 // Position
                 .ForMember(x => x.Position.En, y => y.MapFrom(z => z.PositionEn))
                 .ForMember(x => x.Position.Uz, y => y.MapFrom(z => z.PositionUz))

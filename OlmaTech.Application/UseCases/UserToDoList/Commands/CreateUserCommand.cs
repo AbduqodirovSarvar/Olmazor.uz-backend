@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Http;
+using OlmaTech.Application.Models;
 using OlmaTech.Domain.Entities;
 using OlmaTech.Domain.Enums;
 using System;
@@ -11,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace OlmaTech.Application.UseCases.UserToDoList.Commands
 {
-    public class CreateUserCommand : IRequest<User>
+    public class CreateUserCommand : IRequest<UserViewModel>
     {
         public string Firstname { get; set; } = null!;
         public string FirstnameRu { get; set; } = null!;

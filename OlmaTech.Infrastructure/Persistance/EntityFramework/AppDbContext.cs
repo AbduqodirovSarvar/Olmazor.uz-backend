@@ -66,11 +66,11 @@ namespace OlmaTech.Infrastructure.Persistance.EntityFramework
             }
         }
 
-        public async Task SeedAsync()
+        public async Task SeedAsync(CancellationToken cancellationToken = default)
         {
             using var _context = this.GetService<AppDbContext>();
-            await _context.Users.AddAsync(DefaultData.DefaultUserData.DefaultUser);
-            await _context.SaveChangesAsync();
+            await _context.Users.AddAsync(DefaultData.DefaultUserData.DefaultUser, cancellationToken);
+            await _context.SaveChangesAsync(cancellationToken);
         }
     }
 }

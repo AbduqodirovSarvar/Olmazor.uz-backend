@@ -1,6 +1,8 @@
-﻿using MediatR;
+﻿using AutoMapper;
+using MediatR;
 using Microsoft.EntityFrameworkCore;
 using OlmaTech.Application.Abstractions;
+using OlmaTech.Application.Models;
 using OlmaTech.Domain.Entities;
 using OlmaTech.Domain.Enums;
 using System;
@@ -15,15 +17,17 @@ namespace OlmaTech.Application.UseCases.UserToDoList.Commands
         IAppDbContext appDbContext,
         IFileService fileService,
         IHashService hashService,
-        ICurrentUserService currentUserService
-        ) : IRequestHandler<UpdateUserCommand, User>
+        ICurrentUserService currentUserService,
+        IMapper mapper
+        ) : IRequestHandler<UpdateUserCommand, UserViewModel>
     {
         private readonly IAppDbContext _appDbContext = appDbContext;
         private readonly IFileService _fileService = fileService;
         private readonly IHashService _hashService = hashService;
         private readonly ICurrentUserService _currentUserService = currentUserService;
+        private readonly IMapper _mapper = mapper;
 
-        public async Task<User> Handle(UpdateUserCommand request, CancellationToken cancellationToken)
+        public async Task<UserViewModel> Handle(UpdateUserCommand request, CancellationToken cancellationToken)
         {
             var currentUser = await _appDbContext.Users.FirstOrDefaultAsync(x => x.Id == _currentUserService.Id, cancellationToken)
                                                  ?? throw new Exception("Current User not found");
@@ -69,7 +73,7 @@ namespace OlmaTech.Application.UseCases.UserToDoList.Commands
 
             await _appDbContext.SaveChangesAsync(cancellationToken);
 
-            return user;
+            return _mapper.Map<UserViewModel>(user);
         }
     }
 }

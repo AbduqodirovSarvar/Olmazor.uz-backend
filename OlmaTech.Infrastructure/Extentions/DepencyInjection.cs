@@ -28,20 +28,20 @@ namespace OlmaTech.Infrastructure.Extentions
             services.AddScoped<IHashService, HashService>();
             services.AddScoped<ITokenService, TokenService>();
 
-            //var connectionString = configuration.GetConnectionString("DefaultConnection");
+            var connectionString = configuration.GetConnectionString("DefaultConnection");
 
-            /*var dataSourceBuilder = new NpgsqlDataSourceBuilder(connectionString);
-            var dataSource = dataSourceBuilder.Build();*/
+            var dataSourceBuilder = new NpgsqlDataSourceBuilder(connectionString);
+            var dataSource = dataSourceBuilder.Build();
 
-            services.AddDbContext<AppDbContext>(options =>
+            /*services.AddDbContext<AppDbContext>(options =>
             {
                 options.UseNpgsql(configuration.GetConnectionString("DefaultConnection"),
                     o => o.UseQuerySplittingBehavior(QuerySplittingBehavior.SplitQuery));
-            });
+            });*/
 
-            /*services.AddDbContext<IAppDbContext, AppDbContext>((serviceProvider, options) =>
+            services.AddDbContext<IAppDbContext, AppDbContext>((serviceProvider, options) =>
             {
-                
+
                 options.UseNpgsql(dataSource,
                     options =>
                     {
@@ -50,7 +50,7 @@ namespace OlmaTech.Infrastructure.Extentions
                         options.UseQuerySplittingBehavior(QuerySplittingBehavior.SplitQuery);
                     })
                     .EnableSensitiveDataLogging();
-            });*/
+            });
 
             services.Configure<JwtOptions>(configuration.GetSection(nameof(JwtOptions)));
 
@@ -58,7 +58,7 @@ namespace OlmaTech.Infrastructure.Extentions
             var hashService = serviceProvider.GetRequiredService<IHashService>();
             DefaultUserData.Initialize(hashService);
 
-            services.Configure<JwtOptions>(configuration.GetSection(nameof(JwtOptions)));
+            /*services.Configure<JwtOptions>(configuration.GetSection(nameof(JwtOptions)));
 
             var secretKey = configuration["JWTConfiguration:SecretKey"] ?? "JWTConfiguration:SecretKey";
 
@@ -76,7 +76,7 @@ namespace OlmaTech.Infrastructure.Extentions
                         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey))
                     };
                 });
-            services.AddAuthorization();
+            services.AddAuthorization();*/
 
             return services;
         }

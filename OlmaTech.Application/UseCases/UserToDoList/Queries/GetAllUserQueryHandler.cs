@@ -1,6 +1,8 @@
-﻿using MediatR;
+﻿using AutoMapper;
+using MediatR;
 using Microsoft.EntityFrameworkCore;
 using OlmaTech.Application.Abstractions;
+using OlmaTech.Application.Models;
 using OlmaTech.Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -11,12 +13,14 @@ using System.Threading.Tasks;
 namespace OlmaTech.Application.UseCases.UserToDoList.Queries
 {
     public class GetAllUserQueryHandler(
-        IAppDbContext appDbContext
-        ) : IRequestHandler<GetAllUserQuery, List<User>>
+        IAppDbContext appDbContext,
+        IMapper mapper
+        ) : IRequestHandler<GetAllUserQuery, List<UserViewModel>>
     {
         private readonly IAppDbContext _appDbContext = appDbContext;
+        private readonly IMapper _mapper = mapper;
 
-        public async Task<List<User>> Handle(GetAllUserQuery request, CancellationToken cancellationToken)
+        public async Task<List<UserViewModel>> Handle(GetAllUserQuery request, CancellationToken cancellationToken)
         {
             var users = await _appDbContext.Users.ToListAsync(cancellationToken);
 
@@ -29,7 +33,7 @@ namespace OlmaTech.Application.UseCases.UserToDoList.Queries
                 users = users.Where(x => x.Userrole == request.Role).ToList();
             }
 
-            return users;
+            return _mapper.Map<List<UserViewModel>>(users);
         }
     }
 }

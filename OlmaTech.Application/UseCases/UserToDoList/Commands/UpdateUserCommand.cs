@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Http;
+using OlmaTech.Application.Models;
 using OlmaTech.Domain.Entities;
 using OlmaTech.Domain.Enums;
 using System;
@@ -12,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace OlmaTech.Application.UseCases.UserToDoList.Commands
 {
-    public class UpdateUserCommand : IRequest<User>
+    public class UpdateUserCommand : IRequest<UserViewModel>
     {
         [Required]
         public Guid Id { get; set; }

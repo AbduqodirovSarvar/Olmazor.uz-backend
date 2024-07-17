@@ -13,6 +13,12 @@ namespace OlmaTech.Api.Controllers
     {
         private readonly IMediator _mediator = mediator;
 
+        [HttpGet]
+        public async Task<IActionResult> GetData()
+        {
+            return Ok(await _mediator.Send(new GetCommonDataQuery()));
+        }
+
         [HttpGet("enums")]
         public async Task<IActionResult> GetEnums()
         {

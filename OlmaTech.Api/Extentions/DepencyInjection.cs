@@ -1,5 +1,6 @@
 ﻿using Microsoft.OpenApi.Models;
 using OlmaTech.Infrastructure.Extentions;
+using OlmaTech.Application.Extentions;
 
 namespace OlmaTech.Api.Extentions
 {
@@ -8,6 +9,7 @@ namespace OlmaTech.Api.Extentions
         public static IServiceCollection AddApi(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddHttpContextAccessor();
+            services.AddApplication();
             services.AddInfrastructure(configuration);
             services.AddSwagger();
 
