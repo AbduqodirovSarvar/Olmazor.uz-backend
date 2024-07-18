@@ -46,7 +46,7 @@ namespace OlmaTech.Api.Controllers
 
         [HttpPost]
         [AllowAnonymous]
-        public async Task<IActionResult> Create([FromForm] CreateMessageCommand command)
+        public async Task<IActionResult> Create([FromBody] CreateMessageCommand command)
         {
             try
             {
@@ -60,7 +60,7 @@ namespace OlmaTech.Api.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> Update([FromForm] UpdateMessageCommand command)
+        public async Task<IActionResult> Update([FromBody] UpdateMessageCommand command)
         {
             try
             {

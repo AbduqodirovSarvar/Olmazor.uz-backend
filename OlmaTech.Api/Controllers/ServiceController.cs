@@ -45,7 +45,7 @@ namespace OlmaTech.Api.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create([FromForm] CreateServiceCommand command)
+        public async Task<IActionResult> Create([FromBody] CreateServiceCommand command)
         {
             try
             {
@@ -59,7 +59,7 @@ namespace OlmaTech.Api.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> Update([FromForm] UpdateServiceCommand command)
+        public async Task<IActionResult> Update([FromBody] UpdateServiceCommand command)
         {
             try
             {
