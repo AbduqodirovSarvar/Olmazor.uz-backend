@@ -15,8 +15,8 @@ services:
       - /root/Sarvar/DB:/app/DB
       - /root/Sarvar/Files:/app/Files
     ports:
-      - "5034:80"  # Map the container's port 80 to host port 5034
-      - "7040:443"  # Map the container's port 443 to host port 7040
+      - "8080:80"  # Map the container's port 80 to host port 5034
+      - "8081:443"  # Map the container's port 443 to host port 7040
     networks:
       - olma
 
