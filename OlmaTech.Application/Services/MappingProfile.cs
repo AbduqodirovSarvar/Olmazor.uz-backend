@@ -3,6 +3,7 @@ using OlmaTech.Application.Models;
 using OlmaTech.Application.UseCases.AboutToDoList.Commands;
 using OlmaTech.Application.UseCases.BlogPostToDoList.Commands;
 using OlmaTech.Application.UseCases.ClientToDoList.Commands;
+using OlmaTech.Application.UseCases.ContactToDoList.Commands;
 using OlmaTech.Application.UseCases.HomePostToDoList.Commands;
 using OlmaTech.Application.UseCases.MessageToDoList.Commands;
 using OlmaTech.Application.UseCases.ProjectToDoList.Commands;
@@ -168,6 +169,9 @@ namespace OlmaTech.Application.Services
             // CreateClientCommand -> Client
             CreateMap<CreateClientCommand, Client>()
                 .ForMember(x => x.Photo, y => y.Ignore());
+
+            // CreateContactCommand -> Contact
+            CreateMap<CreateContactCommand, Contact>().ReverseMap();
 
             // CreateClientCommand -> Client
             CreateMap<CreateClientCommand, Client>().ReverseMap();
