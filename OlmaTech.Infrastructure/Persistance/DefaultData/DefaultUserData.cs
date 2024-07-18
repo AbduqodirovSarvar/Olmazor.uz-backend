@@ -21,11 +21,11 @@ namespace OlmaTech.Infrastructure.Persistance.DefaultData
                 FirstnameRu = "СуперАдмин",
                 Lastname = "SuperAdmin",
                 LastnameRu = "СуперАдмин",
-                Email = "superadmin@gmail.com",
+                Email = "olma@gmail.com",
                 Phone = "+998987654321",
                 Gender = Gender.Male,
                 Userrole = UserRole.SuperAdmin,
-                PasswordHash = hashService.GetHash("Admin123!@#")
+                PasswordHash = hashService.GetHash("Olma123!@#")
             };
         }
     }
