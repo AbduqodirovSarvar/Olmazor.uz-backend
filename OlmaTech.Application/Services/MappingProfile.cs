@@ -29,9 +29,9 @@ namespace OlmaTech.Application.Services
                 .ForMember(dest => dest.Name, opt => opt.MapFrom<EnumNameResolver<Enum>>());*/
 
             // Enum -> EnumViewModel
-            CreateMap<Enum, EnumViewModel>()
+            /*CreateMap<Enum, EnumViewModel>()
                 .ForMember(dest => dest.Id, opt => opt.MapFrom(src => Convert.ToInt32(src)))
-                .ForMember(dest => dest.Name, opt => opt.MapFrom(z => z.ToString()));
+                .ForMember(dest => dest.Name, opt => opt.MapFrom(z => z.ToString()));*/
 
             CreateMap<Communication, EnumViewModel>()
             .ForMember(dest => dest.Id, opt => opt.MapFrom(src => (int)src))
