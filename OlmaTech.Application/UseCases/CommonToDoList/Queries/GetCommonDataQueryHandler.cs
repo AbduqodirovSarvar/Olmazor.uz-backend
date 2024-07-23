@@ -39,7 +39,7 @@ namespace OlmaTech.Application.UseCases.CommonToDoList.Queries
                             Teams = teams,
                             Clients = clients,
                             Blogs = blogs,
-                            //Contacts = contacts
+                            Contacts = []//contacts
                         };
         }
     }
