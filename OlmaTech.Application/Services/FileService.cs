@@ -59,6 +59,7 @@ namespace OlmaTech.Application.Services
             }
 
             string fileName = Guid.NewGuid().ToString() + Path.GetExtension(file.FileName)!;
+            Console.WriteLine(fileName);
             string filePath = Path.Combine(_filesDirectory, fileName);
 
             using (var stream = new FileStream(filePath, FileMode.Create))
