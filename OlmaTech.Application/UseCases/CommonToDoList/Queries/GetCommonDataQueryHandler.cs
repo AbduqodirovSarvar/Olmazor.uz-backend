@@ -28,7 +28,7 @@ namespace OlmaTech.Application.UseCases.CommonToDoList.Queries
             List<TeamViewModel>? teams = _mapper.Map<List<TeamViewModel>>(await _appDbContext.Teams.ToListAsync(cancellationToken));
             List<ClientViewModel>? clients = _mapper.Map<List<ClientViewModel>>(await _appDbContext.Clients.ToListAsync(cancellationToken));
             List<BlogPostViewModel>? blogs = _mapper.Map<List<BlogPostViewModel>>(await _appDbContext.BlogPosts.ToListAsync(cancellationToken));
-            List<ContactViewModel>? contacts = _mapper.Map<List<ContactViewModel>>(await _appDbContext.Contacts.ToListAsync(cancellationToken));
+            //List<ContactViewModel>? contacts = _mapper.Map<List<ContactViewModel>>(await _appDbContext.Contacts.ToListAsync(cancellationToken));
 
             return new CommonViewModel()
                         {
@@ -39,7 +39,7 @@ namespace OlmaTech.Application.UseCases.CommonToDoList.Queries
                             Teams = teams,
                             Clients = clients,
                             Blogs = blogs,
-                            Contacts = contacts
+                            //Contacts = contacts
                         };
         }
     }

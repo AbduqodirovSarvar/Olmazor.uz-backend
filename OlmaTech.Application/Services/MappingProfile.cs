@@ -29,11 +29,11 @@ namespace OlmaTech.Application.Services
                 .ForMember(dest => dest.Name, opt => opt.MapFrom<EnumNameResolver<Enum>>());*/
 
             // Enum -> EnumViewModel
-            /*CreateMap<Enum, EnumViewModel>()
+            CreateMap<Enum, EnumViewModel>()
                 .ForMember(dest => dest.Id, opt => opt.MapFrom(src => Convert.ToInt32(src)))
-                .ForMember(dest => dest.Name, opt => opt.MapFrom(z => z.ToString()));*/
+                .ForMember(dest => dest.Name, opt => opt.MapFrom(z => z.ToString()));
 
-            CreateMap<Communication, EnumViewModel>()
+            /*CreateMap<Communication, EnumViewModel>()
             .ForMember(dest => dest.Id, opt => opt.MapFrom(src => (int)src))
             .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.ToString()));
 
@@ -43,7 +43,7 @@ namespace OlmaTech.Application.Services
 
             CreateMap<UserRole, EnumViewModel>()
                 .ForMember(dest => dest.Id, opt => opt.MapFrom(src => (int)src))
-                .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.ToString()));
+                .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.ToString()));*/
 
             // About -> AboutViewModel
             CreateMap<About, AboutViewModel>()
