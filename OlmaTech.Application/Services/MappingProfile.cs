@@ -82,6 +82,9 @@ namespace OlmaTech.Application.Services
                 .ForPath(x => x.Description.Ru, y => y.MapFrom(z => z.DescriptionRu))
                 .ForPath(x => x.Description.Uzru, y => y.MapFrom(z => z.DescriptionUzRu));
 
+            // Contact -> ContactViewModel
+            CreateMap<Contact, ContactViewModel>().ReverseMap();
+
             // Client -> ClientViewModel
             CreateMap<Client, ClientViewModel>()
                 // FirstName
