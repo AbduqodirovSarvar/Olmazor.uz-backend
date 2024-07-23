@@ -33,6 +33,18 @@ namespace OlmaTech.Application.Services
                 .ForMember(dest => dest.Id, opt => opt.MapFrom(src => Convert.ToInt32(src)))
                 .ForMember(dest => dest.Name, opt => opt.MapFrom(z => z.ToString()));
 
+            CreateMap<Communication, EnumViewModel>()
+            .ForMember(dest => dest.Id, opt => opt.MapFrom(src => (int)src))
+            .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.ToString()));
+
+            CreateMap<Gender, EnumViewModel>()
+                .ForMember(dest => dest.Id, opt => opt.MapFrom(src => (int)src))
+                .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.ToString()));
+
+            CreateMap<UserRole, EnumViewModel>()
+                .ForMember(dest => dest.Id, opt => opt.MapFrom(src => (int)src))
+                .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.ToString()));
+
             // About -> AboutViewModel
             CreateMap<About, AboutViewModel>()
                 
