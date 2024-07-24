@@ -80,7 +80,11 @@ namespace OlmaTech.Application.Services
                 .ForPath(x => x.Description.En, y => y.MapFrom(z => z.DescriptionEn))
                 .ForPath(x => x.Description.Uz, y => y.MapFrom(z => z.DescriptionUz))
                 .ForPath(x => x.Description.Ru, y => y.MapFrom(z => z.DescriptionRu))
-                .ForPath(x => x.Description.Uzru, y => y.MapFrom(z => z.DescriptionUzRu));
+                .ForPath(x => x.Description.Uzru, y => y.MapFrom(z => z.DescriptionUzRu))
+                // Description
+                .ForPath(x => x.Date.Year, y => y.MapFrom(z => z.CreatedAt.Year))
+                .ForPath(x => x.Date.Month, y => y.MapFrom(z => z.CreatedAt.Month))
+                .ForPath(x => x.Date.Day, y => y.MapFrom(z => z.CreatedAt.Day));
 
             // Contact -> ContactViewModel
             CreateMap<Contact, ContactViewModel>().ReverseMap();
@@ -158,7 +162,17 @@ namespace OlmaTech.Application.Services
                 .ForPath(x => x.Position.En, y => y.MapFrom(z => z.PositionEn))
                 .ForPath(x => x.Position.Uz, y => y.MapFrom(z => z.PositionUz))
                 .ForPath(x => x.Position.Ru, y => y.MapFrom(z => z.PositionRu))
-                .ForPath(x => x.Position.Uzru, y => y.MapFrom(z => z.PositionUzRu));
+                .ForPath(x => x.Position.Uzru, y => y.MapFrom(z => z.PositionUzRu))
+                // FirstName
+                .ForPath(x => x.Firstname.En, y => y.MapFrom(z => z.Firstname))
+                .ForPath(x => x.Firstname.Uz, y => y.MapFrom(z => z.Firstname))
+                .ForPath(x => x.Firstname.Ru, y => y.MapFrom(z => z.FirstnameRu))
+                .ForPath(x => x.Firstname.Uzru, y => y.MapFrom(z => z.FirstnameRu))
+                // LastName
+                .ForPath(x => x.Lastname.En, y => y.MapFrom(z => z.Lastname))
+                .ForPath(x => x.Lastname.Uz, y => y.MapFrom(z => z.Lastname))
+                .ForPath(x => x.Lastname.Ru, y => y.MapFrom(z => z.LastnameRu))
+                .ForPath(x => x.Lastname.Uzru, y => y.MapFrom(z => z.LastnameRu));
 
             // User -> UserViewModel
             CreateMap<User, UserViewModel>()

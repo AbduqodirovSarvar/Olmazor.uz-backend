@@ -13,9 +13,17 @@ namespace OlmaTech.Application.Models
         public LocalizableViewModel Description { get; set; } = null!;
         public string? Link { get; set; } = null;
         public string Photo { get; set; } = null!;
+        public DateResponse Date { get; set; } = null!;
         public Guid CreatedBy { get; set; }
         public DateTime CreatedAt { get; set; }
         public Guid UpdatedBy { get; set; }
         public DateTime UpdatedAt { get; set; }
+    }
+
+    public class DateResponse
+    {
+        public int Year { get; set; }
+        public int Month { get; set; }
+        public int Day { get; set; }
     }
 }
