@@ -13,18 +13,15 @@ using System.Threading.Tasks;
 namespace OlmaTech.Application.UseCases.UserToDoList.Queries
 {
     public class GetUserQueryHandler(
-        IAppDbContext appDbContext,
-        IMapper mapper
-        ) : IRequestHandler<GetUserQuery, UserViewModel>
+        IAppDbContext appDbContext
+        ) : IRequestHandler<GetUserQuery, User>
     {
         private readonly IAppDbContext _appDbContext = appDbContext;
-        private readonly IMapper _mapper = mapper;
 
-        public async Task<UserViewModel> Handle(GetUserQuery request, CancellationToken cancellationToken)
+        public async Task<User> Handle(GetUserQuery request, CancellationToken cancellationToken)
         {
-            var user = await _appDbContext.Users.FirstOrDefaultAsync(x => x.Id == request.Id, cancellationToken)
+            return await _appDbContext.Users.FirstOrDefaultAsync(x => x.Id == request.Id, cancellationToken)
                                           ?? throw new Exception("User not found");
-            return _mapper.Map<UserViewModel>(user);
         }
     }
 }

@@ -16,14 +16,14 @@ namespace OlmaTech.Application.UseCases.UserToDoList.Commands
         IFileService fileService,
         IMapper mapper,
         IHashService hashService
-        ) : IRequestHandler<CreateUserCommand, UserViewModel>
+        ) : IRequestHandler<CreateUserCommand, User>
     {
         private readonly IAppDbContext _appDbContext = appDbContext;
         private readonly IFileService _fileService = fileService;
         private readonly IMapper _mapper = mapper;
         private readonly IHashService _hashService = hashService;
 
-        public async Task<UserViewModel> Handle(CreateUserCommand request, CancellationToken cancellationToken)
+        public async Task<User> Handle(CreateUserCommand request, CancellationToken cancellationToken)
         {
             var user = _mapper.Map<User>(request);
             var photoFileName = await _fileService.SaveFileAsync(request.Photo) 
@@ -35,7 +35,7 @@ namespace OlmaTech.Application.UseCases.UserToDoList.Commands
             await _appDbContext.Users.AddAsync(user, cancellationToken);
             await _appDbContext.SaveChangesAsync(cancellationToken);
 
-            return _mapper.Map<UserViewModel>(user);
+            return user;
         }
     }
 }

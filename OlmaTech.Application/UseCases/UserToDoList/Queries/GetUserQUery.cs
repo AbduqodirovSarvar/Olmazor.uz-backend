@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace OlmaTech.Application.UseCases.UserToDoList.Queries
 {
-    public class GetUserQuery : IRequest<UserViewModel>
+    public class GetUserQuery : IRequest<User>
     {
         [Required]
         public Guid Id { get; set; }

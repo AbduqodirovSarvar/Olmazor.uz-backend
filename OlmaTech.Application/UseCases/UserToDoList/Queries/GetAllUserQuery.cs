@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace OlmaTech.Application.UseCases.UserToDoList.Queries
 {
-    public class GetAllUserQuery : IRequest<List<UserViewModel>>
+    public class GetAllUserQuery : IRequest<List<User>>
     {
         public UserRole? Role { get; set; } = null;
         public Gender? Gender { get; set; } = null;

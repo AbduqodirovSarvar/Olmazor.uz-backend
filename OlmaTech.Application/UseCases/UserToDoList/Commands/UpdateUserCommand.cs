@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace OlmaTech.Application.UseCases.UserToDoList.Commands
 {
-    public class UpdateUserCommand : IRequest<UserViewModel>
+    public class UpdateUserCommand : IRequest<User>
     {
         [Required]
         public Guid Id { get; set; }

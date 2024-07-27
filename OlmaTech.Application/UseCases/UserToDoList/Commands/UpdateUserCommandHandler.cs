@@ -17,17 +17,15 @@ namespace OlmaTech.Application.UseCases.UserToDoList.Commands
         IAppDbContext appDbContext,
         IFileService fileService,
         IHashService hashService,
-        ICurrentUserService currentUserService,
-        IMapper mapper
-        ) : IRequestHandler<UpdateUserCommand, UserViewModel>
+        ICurrentUserService currentUserService
+        ) : IRequestHandler<UpdateUserCommand, User>
     {
         private readonly IAppDbContext _appDbContext = appDbContext;
         private readonly IFileService _fileService = fileService;
         private readonly IHashService _hashService = hashService;
         private readonly ICurrentUserService _currentUserService = currentUserService;
-        private readonly IMapper _mapper = mapper;
 
-        public async Task<UserViewModel> Handle(UpdateUserCommand request, CancellationToken cancellationToken)
+        public async Task<User> Handle(UpdateUserCommand request, CancellationToken cancellationToken)
         {
             var currentUser = await _appDbContext.Users.FirstOrDefaultAsync(x => x.Id == _currentUserService.Id, cancellationToken)
                                                  ?? throw new Exception("Current User not found");
@@ -73,7 +71,7 @@ namespace OlmaTech.Application.UseCases.UserToDoList.Commands
 
             await _appDbContext.SaveChangesAsync(cancellationToken);
 
-            return _mapper.Map<UserViewModel>(user);
+            return user;
         }
     }
 }

@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace OlmaTech.Application.UseCases.UserToDoList.Commands
 {
-    public class CreateUserCommand : IRequest<UserViewModel>
+    public class CreateUserCommand : IRequest<User>
     {
         public string Firstname { get; set; } = null!;
         public string FirstnameRu { get; set; } = null!;

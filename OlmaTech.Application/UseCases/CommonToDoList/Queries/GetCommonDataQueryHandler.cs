@@ -21,7 +21,7 @@ namespace OlmaTech.Application.UseCases.CommonToDoList.Queries
 
         public async Task<CommonViewModel> Handle(GetCommonDataQuery request, CancellationToken cancellationToken)
         {
-            AboutViewModel about = _mapper.Map<AboutViewModel>(await _appDbContext.Abouts.FirstOrDefaultAsync(cancellationToken));
+            AboutViewModel about = _mapper.Map<AboutViewModel>(await _appDbContext.Abouts.OrderByDescending(x => x.CreatedAt).FirstOrDefaultAsync(cancellationToken));
             List<HomePostViewModel>? homes = _mapper.Map<List<HomePostViewModel>>(await _appDbContext.HomePosts.ToListAsync(cancellationToken));
             List<ServiceViewModel>? services = _mapper.Map<List<ServiceViewModel>>(await _appDbContext.Services.ToListAsync( cancellationToken));
             List<ProjectViewModel>? projects = _mapper.Map<List<ProjectViewModel>>(await _appDbContext.Projects.ToListAsync(cancellationToken));

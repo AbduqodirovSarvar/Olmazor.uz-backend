@@ -15,12 +15,12 @@ namespace OlmaTech.Application.UseCases.UserToDoList.Queries
     public class GetAllUserQueryHandler(
         IAppDbContext appDbContext,
         IMapper mapper
-        ) : IRequestHandler<GetAllUserQuery, List<UserViewModel>>
+        ) : IRequestHandler<GetAllUserQuery, List<User>>
     {
         private readonly IAppDbContext _appDbContext = appDbContext;
         private readonly IMapper _mapper = mapper;
 
-        public async Task<List<UserViewModel>> Handle(GetAllUserQuery request, CancellationToken cancellationToken)
+        public async Task<List<User>> Handle(GetAllUserQuery request, CancellationToken cancellationToken)
         {
             var users = await _appDbContext.Users.ToListAsync(cancellationToken);
 
@@ -33,7 +33,7 @@ namespace OlmaTech.Application.UseCases.UserToDoList.Queries
                 users = users.Where(x => x.Userrole == request.Role).ToList();
             }
 
-            return _mapper.Map<List<UserViewModel>>(users);
+            return users;
         }
     }
 }
