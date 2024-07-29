@@ -54,7 +54,7 @@ namespace OlmaTech.Application.UseCases.AuthToDoList.Commands
 
             return new LoginViewModel()
             {
-                User = _mapper.Map<UserViewModel>(user),
+                User = user,
                 AccessToken = _tokenService.GetAccessToken([.. claims])
             };
         }
