@@ -29,7 +29,7 @@ namespace OlmaTech.Application.UseCases.MessageToDoList.Commands
             message.IsReplied = request.IsReplied ?? message.IsReplied;
 
             await _appDbContext.SaveChangesAsync(cancellationToken);
-            throw new NotImplementedException();
+            return message;
         }
     }
 }
