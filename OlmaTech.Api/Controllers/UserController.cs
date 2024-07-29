@@ -30,6 +30,20 @@ namespace OlmaTech.Api.Controllers
             }
         }
 
+        [HttpGet("me")]
+        public async Task<IActionResult> GetCurrentUser()
+        {
+            try
+            {
+                return Ok(await mediator.Send(new GetCurrentUserQuery()));
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                return BadRequest(ex.Message);
+            }
+        }
+
         [HttpGet("all")]
         public async Task<IActionResult> GetAll([FromQuery] GetAllUserQuery query)
         {
